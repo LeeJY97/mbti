@@ -1,13 +1,24 @@
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const { pathname } = useLocation();
+
   return (
-    <div className='flex items-center'>
-      <span>검사하기</span>
-      <span>나의 결과</span>
-      <span>모든 결과</span>
-      <span>로그아웃</span>
-    </div>
+    <ul className='flex justify-center w-screen gap-1'>
+      <li className={pathname === "/test" ? "bg-blue-500 text-white p-2 rounded" : "p-2"}>
+        <Link to='/test'>검사하기</Link>
+      </li>
+      <li className={pathname === "/my-test-result" ? "bg-blue-500 text-white p-2 rounded" : "p-2"}>
+        <Link to='/my-test-result'>기록</Link>
+      </li>
+      <li className={pathname === "/all-test-result" ? "bg-blue-500 text-white p-2 rounded" : "p-2"}>
+        <Link to='/all-test-result'>타인</Link>
+      </li>
+      <li className={pathname === "/#" ? "bg-blue-500 text-white p-2 rounded" : "p-2"}>
+        <Link to='/#'>로그아웃</Link>
+      </li>
+    </ul>
   );
 };
 

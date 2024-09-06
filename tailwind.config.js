@@ -2,10 +2,18 @@
 export default {
   content: [
     "./index.html", // 경로
-    "./src/**/*.{js, ts, jsx, tsx}"
+    './src/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
-    extend: {},
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
+    },
+    fontFamily: {
+      'sans': ['ui-sans-serif', 'system-ui'],
+    }
   },
   plugins: [],
 }

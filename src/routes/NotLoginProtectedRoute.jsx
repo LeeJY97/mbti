@@ -2,7 +2,7 @@ import { Navigate, Outlet } from "react-router-dom";
 import SignIn from "../pages/sign/SignIn";
 
 export const NotLoginProtectedRoute = () => {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   if (isLoggedIn) {
     console.log("isLoggedIn");

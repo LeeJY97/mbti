@@ -37,12 +37,12 @@ const Routes = () => {
           element: <Index />,
         },
         {
-          path: "my-test-result",
-          element: <MyTestResult />,
-        },
-        {
           path: "test",
           element: <Test />,
+        },
+        {
+          path: "my-test-result",
+          element: <MyTestResult />,
         },
         {
           path: "all-test-result",
