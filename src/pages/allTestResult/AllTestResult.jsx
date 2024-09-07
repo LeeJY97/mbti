@@ -19,10 +19,13 @@ const AllTestResult = () => {
   }
 
   return (
-    <ul className="flex flex-col gap-10">
+    <ul className="flex flex-row flex-wrap  gap-10">
       {testResults.map((result) => {
         return (
-          <li key={result.id} className="flex flex-col items-center gap-3 border border-grey-500 rounded-lg w-52 h-52">
+          <li
+            key={result.id}
+            className="flex flex-col items-center gap-3 p-4 border border-grey-500 rounded-lg w-52 h-52"
+          >
             <h2>❝{result.mbti.toUpperCase()}❞</h2>
             <p>{MBTI_DESCRIPTIONS[result.mbti].keyword}</p>
             <p>{MBTI_DESCRIPTIONS[result.mbti].description}</p>
