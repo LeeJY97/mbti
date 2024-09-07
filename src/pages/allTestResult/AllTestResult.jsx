@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import testApi from "../../axios/test";
-import { MBTI_DESCRIPTIONS } from "../test/constants";
+import { MBTI_DESCRIPTIONS } from "../../utils/constants";
 
 const AllTestResult = () => {
   const { data: testResults, isPending: isTestResultsPending } = useQuery({

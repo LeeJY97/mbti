@@ -1,7 +1,7 @@
 import testApi from "../../axios/test";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTest, useTestAction } from "../../zustand/store";
-import { getSummaryTest, validateTest } from "./utils";
+import { getSummaryTest, validateTest } from "../../utils";
 
 const Test = () => {
   const { selected } = useTest();
@@ -39,7 +39,7 @@ const Test = () => {
     }
   }
 
-  function addTestResultHandler() {
+  function handleTestResult() {
     if (validateTest(tests, selected)) {
       const testResult = getSummaryTest(tests, selected);
       mutate(testResult);
@@ -77,7 +77,7 @@ const Test = () => {
         ))}
       </ul>
       <div className="flex justify-center mx-auto">
-        <button className="bg-slate-500" onClick={addTestResultHandler}>
+        <button className="bg-slate-500" onClick={handleTestResult}>
           제출
         </button>
       </div>
