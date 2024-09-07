@@ -1,8 +1,18 @@
-import React from 'react';
+import { Link } from "react-router-dom";
+import AuthForm from "./AuthForm";
 
 const SignIn = () => {
-  console.log('dddd');
-  return <div>SignIn</div>;
+  return (
+    <AuthForm>
+      <h2 className="text-2xl">로그인</h2>
+      <input type="text" placeholder="아이디를 입력하세요" className="border border-grey-500 " />
+      <input type="password" placeholder="비밀번호를 입력하세요" className="border border-grey-500 " />
+      <button onClick={() => {}}>로그인</button>
+      <Link to="/auth/sign-up">
+        <span>회원가입</span>
+      </Link>
+    </AuthForm>
+  );
 };
 
 export default SignIn;

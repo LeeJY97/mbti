@@ -2,9 +2,9 @@ import { Navigate, Outlet } from "react-router-dom";
 import Layout from "../components/Layout";
 
 export const LoginProtectedRoute = () => {
-  const isLoggedIn = true;
+  const isLoggedIn = false;
 
-  if (!isLoggedIn) return <Navigate to='/auth/sign-in' replace />;
+  if (!isLoggedIn) return <Navigate to="/auth/sign-in" replace />;
 
   return (
     <Layout>

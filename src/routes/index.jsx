@@ -1,4 +1,3 @@
-import React from "react";
 import SignUp from "../pages/sign/SignUp";
 import SignIn from "../pages/sign/SignIn";
 import Index from "../pages";
