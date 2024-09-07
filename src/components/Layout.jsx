@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      {children}
+      <div className="w-4/6 mx-auto">{children}</div>
       <Footer />
     </>
   );

@@ -1,7 +1,9 @@
-import React from 'react';
-
 const MyTestResult = () => {
-  return <div>MyTestResult</div>;
+  return (
+    <ul>
+      <div></div>
+    </ul>
+  );
 };
 
 export default MyTestResult;

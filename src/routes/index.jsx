@@ -17,14 +17,14 @@ const Routes = () => {
       children: [
         {
           path: "sign-in",
-          element: <SignIn />,
+          element: <SignIn />
         },
         {
           path: "sign-up",
-          element: <SignUp />,
-        },
-      ],
-    },
+          element: <SignUp />
+        }
+      ]
+    }
   ];
 
   const authenticatedOnly = [
@@ -34,26 +34,26 @@ const Routes = () => {
       children: [
         {
           path: "/",
-          element: <Index />,
+          element: <Index />
         },
         {
           path: "test",
-          element: <Test />,
+          element: <Test />
         },
         {
           path: "my-test-result",
-          element: <MyTestResult />,
+          element: <MyTestResult />
         },
         {
           path: "all-test-result",
-          element: <AllTestResult />,
+          element: <AllTestResult />
         },
         {
           path: "*",
-          element: <Navigate to='/' />, // 404
-        },
-      ],
-    },
+          element: <Navigate to="/" /> // 404
+        }
+      ]
+    }
   ];
 
   // const router = createBrowserRouter([...notAuthenticatedOnly, ...authenticatedOnly]);
