@@ -8,9 +8,8 @@ const AllTestResult = () => {
     queryFn: fetchTestResults
   });
 
-  async function fetchTestResults() {
-    const { data } = await testApi.get("/testResults");
-    console.log("data", data);
+  async function fetchTestResults(userId) {
+    const { data } = await testApi.get(`/testResults`);
     return data;
   }
 
@@ -29,7 +28,7 @@ const AllTestResult = () => {
             <h2>❝{result.mbti.toUpperCase()}❞</h2>
             <p>{MBTI_DESCRIPTIONS[result.mbti].keyword}</p>
             <p>{MBTI_DESCRIPTIONS[result.mbti].description}</p>
-            <p>사용자 1</p>
+            <p>{result.nickname}</p>
           </li>
         );
       })}

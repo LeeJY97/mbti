@@ -1,12 +1,14 @@
 import { Link, useNavigate } from "react-router-dom";
 import AuthForm from "./AuthForm";
-import { useUser } from "../../zustand/store";
+import { useUserAction } from "../../zustand/authStore";
 import { useState } from "react";
 
 const SignIn = () => {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
-  const { signIn } = useUser();
+  // const [id, setId] = useState("");
+  // const [password, setPassword] = useState("");
+  const [id, setId] = useState("admin");
+  const [password, setPassword] = useState("123123");
+  const { signIn } = useUserAction();
   const navigate = useNavigate();
 
   const signInHandler = () => {

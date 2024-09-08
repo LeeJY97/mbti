@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import AuthForm from "./AuthForm";
-import { useUser } from "../../zustand/store";
+import { useUserAction } from "../../zustand/authStore";
 import { useState } from "react";
 import { generateRandomNickname } from "../../utils";
 
 const SignUp = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
-  const { signUp } = useUser();
+  const { signUp } = useUserAction();
   const nickname = generateRandomNickname();
   return (
     <AuthForm>

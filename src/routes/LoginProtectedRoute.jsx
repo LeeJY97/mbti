@@ -1,13 +1,20 @@
 import { Navigate, Outlet } from "react-router-dom";
 import Layout from "../components/Layout";
-import { useUser } from "../zustand/store";
+import { useUser } from "../zustand/authStore";
 
 export const LoginProtectedRoute = () => {
-  const { isLoggedIn } = useUser();
+  const { isLoggedIn, validateToken } = useUser();
 
-  console.log("isLoggedIn", isLoggedIn);
+  // const isValidateToken = validateToken().then((res) => {
+  //   console.log("res", res);
+  // });
 
-  if (!isLoggedIn) return <Navigate to="/auth/sign-in" replace />;
+  // console.log("isValidateToken", isValidateToken);
+
+  console.log("로그인 된 사람 route", isLoggedIn);
+  if (!isLoggedIn) {
+    return <Navigate to="/auth/sign-in" replace />;
+  }
 
   return (
     <Layout>
