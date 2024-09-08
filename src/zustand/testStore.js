@@ -11,6 +11,9 @@ const testStore = create(immer((set) => {
           state.selected[id] = answer;
         })
       },
+      // 함수 분리하기 가독성이 안좋다. (타인이 보기 힘듬)
+      // 이게 좋으려면 차라리 type을 받는게 좋음 (privateResults, allResults)
+      // zustand에서 하지 말고, tanstack으로 관리 하기
       fetchTestResults: async (userId) => {
         const path = !userId ? `/testResults` : `/testResults?userId=${userId}`
 

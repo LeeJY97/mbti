@@ -5,7 +5,7 @@ import { immer } from "zustand/middleware/immer";
 const userStore = create(
   immer((set) => {
     return {
-      token: sessionStorage.getItem('token') || "",
+      token: sessionStorage.getItem('token'),
       isLoggedIn: false,
       userinfo: null,
       action: {
@@ -41,7 +41,8 @@ const userStore = create(
 
         validateToken: async () => {
           try {
-            const { data } = await authApi.get("/user");
+            // const { data } = await authApi.get("/user");
+            const { data } = await authApi.getUser("/user");
 
             return data;
 
