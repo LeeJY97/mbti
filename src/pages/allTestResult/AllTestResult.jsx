@@ -3,11 +3,11 @@ import { MBTI_DESCRIPTIONS } from "../../utils/constants";
 import { useTestAction } from "../../zustand/testStore";
 
 const AllTestResult = () => {
-  const { fetchTestResults } = useTestAction();
+  const { getAllTestResults } = useTestAction();
 
   const { data: testResults, isPending: isTestResultsPending } = useQuery({
     queryKey: ["testResults"],
-    queryFn: () => fetchTestResults()
+    queryFn: () => getAllTestResults()
   });
 
   if (isTestResultsPending) {

@@ -1,4 +1,4 @@
-import { authApi } from "../axios/auth";
+import authApi from "../axios/auth";
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
@@ -10,45 +10,30 @@ const userStore = create(
       userinfo: null,
       action: {
         signUp: async (userFormData) => {
-          try {
-            await authApi.post("/register", userFormData);
+          await authApi.register(userFormData);
 
-            set((state) => {
-              state.signIn(userFormData);
-            })
-          } catch (e) {
-            alert(e.response.data.message);
-          }
+          set(async (state) => {
+            await state.action.signIn(userFormData);
+          })
         },
         signIn: async (userFormData) => {
-          try {
-            const { data } = await authApi.post("/login", userFormData);
+          const userData = await authApi.login(userFormData);
 
-            sessionStorage.setItem('token', data.accessToken);
+          sessionStorage.setItem('token', userData.accessToken);
 
-            set((state) => {
-              state.token = data.accessToken;
-              state.isLoggedIn = true;
-              state.userinfo = {
-                id: data.userId,
-                nickname: data.nickname
-              }
-            });
-          } catch (e) {
-            alert(e.response.data.message);
-          }
+          set((state) => {
+            state.token = userData.accessToken;
+            state.isLoggedIn = true;
+            state.userinfo = {
+              id: userData.userId,
+              nickname: userData.nickname
+            }
+          });
         },
 
         validateToken: async () => {
-          try {
-            // const { data } = await authApi.get("/user");
-            const { data } = await authApi.getUser("/user");
-
-            return data;
-
-          } catch (e) {
-            console.log('error => validateToken', e.response.data.message);
-          }
+          const data = await authApi.user();
+          console.log('validateToken data', data);
         },
         signOut: () => {
           sessionStorage.removeItem('token');
@@ -60,9 +45,8 @@ const userStore = create(
           })
         },
         updateProfile: async (updateUserinfo) => {
-          const { data: newUserinfo } = await authApi.patch("/profile", updateUserinfo);
+          const newUserinfo = await authApi.patchProfile(updateUserinfo);
 
-          console.log('newUserinfo', newUserinfo);
           set((state) => {
             state.userinfo.nickname = newUserinfo.nickname;
           })

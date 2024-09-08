@@ -14,11 +14,13 @@ const testStore = create(immer((set) => {
       // 함수 분리하기 가독성이 안좋다. (타인이 보기 힘듬)
       // 이게 좋으려면 차라리 type을 받는게 좋음 (privateResults, allResults)
       // zustand에서 하지 말고, tanstack으로 관리 하기
-      fetchTestResults: async (userId) => {
-        const path = !userId ? `/testResults` : `/testResults?userId=${userId}`
-
-        const { data } = await testApi.get(path);
-        return data;
+      getAllTestResults: async () => {
+        const allTestResults = testApi.getAllTestResults();
+        return allTestResults;
+      },
+      getPrivateTestResults: async (userId) => {
+        const privateTestResults = testApi.getPrivateTestResults(userId);
+        return privateTestResults;
       },
       fetchBatchPatch: async ({ userId, nickname }) => {
         const { data: testResults } = await testApi.get(`/testResults?userId=${userId}`);

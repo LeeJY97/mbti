@@ -5,11 +5,11 @@ import { useTestAction } from "../../zustand/testStore";
 
 const MyTestResult = () => {
   const { userinfo } = useUser();
-  const { fetchTestResults } = useTestAction();
+  const { getPrivateTestResults } = useTestAction();
 
   const { data: testResults, isPending: isTestResultsPending } = useQuery({
     queryKey: ["testResults"],
-    queryFn: () => fetchTestResults(userinfo.id)
+    queryFn: () => getPrivateTestResults(userinfo.id)
   });
 
   if (isTestResultsPending) {
