@@ -16,8 +16,6 @@ const MyTestResult = () => {
     return <>로딩중 . . .</>;
   }
 
-  console.log("MyTestREsult", testResults);
-
   return (
     <ul className="flex flex-row flex-wrap  gap-10">
       {testResults.map((result) => {

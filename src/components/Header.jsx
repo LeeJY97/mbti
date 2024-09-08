@@ -9,7 +9,7 @@ const Header = () => {
   console.log("userinfo", userinfo);
 
   return (
-    <ul className="flex justify-center w-screen gap-1">
+    <ul className="flex justify-center w-screen gap-1 border-b-2 h-12">
       <li className={pathname === "/test" ? "bg-blue-500 text-white p-2 rounded" : "p-2"}>
         <Link to="/test">검사하기</Link>
       </li>
@@ -19,8 +19,11 @@ const Header = () => {
       <li className={pathname === "/all-test-result" ? "bg-blue-500 text-white p-2 rounded" : "p-2"}>
         <Link to="/all-test-result">타인</Link>
       </li>
+      <li className={pathname === "/profile" ? "bg-blue-500 text-white p-2 rounded" : "p-2"}>
+        <Link to="/profile">{userinfo?.nickname}</Link>
+      </li>
       <li className={pathname === "/#" ? "bg-blue-500 text-white p-2 rounded" : "p-2"} onClick={signOut}>
-        <Link to="/#">{userinfo?.nickname}로그아웃</Link>
+        <Link to="/#">로그아웃</Link>
       </li>
     </ul>
   );

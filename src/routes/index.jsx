@@ -7,6 +7,7 @@ import { LoginProtectedRoute } from "./LoginProtectedRoute";
 import { NotLoginProtectedRoute } from "./NotLoginProtectedRoute";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import Test from "../pages/test/Test";
+import Profile from "../pages/profile/Profile";
 
 const Routes = () => {
   const notAuthenticatedOnly = [
@@ -46,6 +47,10 @@ const Routes = () => {
         {
           path: "all-test-result",
           element: <AllTestResult />
+        },
+        {
+          path: "profile",
+          element: <Profile />
         },
         {
           path: "*",

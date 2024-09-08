@@ -57,6 +57,14 @@ const userStore = create(
             state.isLoggedIn = false;
             state.userinfo = {};
           })
+        },
+        updateProfile: async (updateUserinfo) => {
+          const { data: newUserinfo } = await authApi.patch("/profile", updateUserinfo);
+
+          console.log('newUserinfo', newUserinfo);
+          set((state) => {
+            state.userinfo.nickname = newUserinfo.nickname;
+          })
         }
       }
     }

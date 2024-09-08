@@ -16,6 +16,15 @@ const testStore = create(immer((set) => {
 
         const { data } = await testApi.get(path);
         return data;
+      },
+      fetchBatchPatch: async ({ userId, nickname }) => {
+        const { data: testResults } = await testApi.get(`/testResults?userId=${userId}`);
+
+        const updatePromises = testResults.map(item => {
+          return testApi.patch(`/testResults/${item.id}`, { nickname });
+        })
+
+        Promise.all(updatePromises);
       }
     }
   }
