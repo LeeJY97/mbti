@@ -62,8 +62,6 @@ const Test = () => {
         testResult.userId = userinfo.id;
         testResult.nickname = userinfo.nickname;
 
-        // console.log("testResult", testResult);
-
         mutate(testResult);
       }
     }

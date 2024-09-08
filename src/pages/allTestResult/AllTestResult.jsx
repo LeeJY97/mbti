@@ -1,17 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
-import testApi from "../../axios/test";
 import { MBTI_DESCRIPTIONS } from "../../utils/constants";
+import { useTestAction } from "../../zustand/testStore";
 
 const AllTestResult = () => {
+  const { fetchTestResults } = useTestAction();
+
   const { data: testResults, isPending: isTestResultsPending } = useQuery({
     queryKey: ["testResults"],
-    queryFn: fetchTestResults
+    queryFn: () => fetchTestResults()
   });
-
-  async function fetchTestResults(userId) {
-    const { data } = await testApi.get(`/testResults`);
-    return data;
-  }
 
   if (isTestResultsPending) {
     return <div>로딩중. . . </div>;
