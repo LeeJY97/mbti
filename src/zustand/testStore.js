@@ -22,11 +22,11 @@ const testStore = create(immer((set) => {
         const privateTestResults = testApi.getPrivateTestResults(userId);
         return privateTestResults;
       },
-      fetchBatchPatch: async ({ userId, nickname }) => {
-        const { data: testResults } = await testApi.get(`/testResults?userId=${userId}`);
+      PatchBatchProfile: async ({ userId, nickname }) => {
+        const testResults = await testApi.getPrivateTestResults(userId);
 
         const updatePromises = testResults.map(item => {
-          return testApi.patch(`/testResults/${item.id}`, { nickname });
+          return testApi.PatchBatchProfile(item.id, nickname);
         })
 
         Promise.all(updatePromises);

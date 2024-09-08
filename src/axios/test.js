@@ -14,9 +14,15 @@ const getPrivateTestResults = async (userId) => {
   return data;
 }
 
+const PatchBatchProfile = async (id, nickname) => {
+  const { data } = await api.patch(`/testResults/${id}`, { nickname });
+  return data;
+}
+
 const testApi = {
   getAllTestResults,
-  getPrivateTestResults
+  getPrivateTestResults,
+  PatchBatchProfile
 }
 
 export default testApi;

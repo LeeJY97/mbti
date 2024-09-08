@@ -5,7 +5,7 @@ import { useTestAction } from "../../zustand/testStore";
 const Profile = () => {
   const { userinfo } = useUser();
   const { updateProfile } = useUserAction();
-  const { fetchBatchPatch } = useTestAction();
+  const { PatchBatchProfile } = useTestAction();
   const [inputActive, setInputActive] = useState(false);
   const [nickname, setNickname] = useState(userinfo?.nickname);
   const inputRef = useRef();
@@ -19,8 +19,7 @@ const Profile = () => {
   const handleUpdateUser = () => {
     updateProfile({ nickname });
     setInputActive(false);
-    // json-server에 있는거 전부 ..
-    fetchBatchPatch({ userId: userinfo.id, nickname });
+    PatchBatchProfile({ userId: userinfo.id, nickname });
   };
 
   return (
