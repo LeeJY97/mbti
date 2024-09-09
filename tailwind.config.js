@@ -37,7 +37,7 @@ export default {
         'entj': '#D3D3D3',
       },
       fontFamily: {
-        'sans': ['ui-sans-serif', 'system-ui'],
+        PretendardRegular: ["Pretendard-Regular"],
       },
     }
   },

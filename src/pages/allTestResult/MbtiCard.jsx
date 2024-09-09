@@ -1,5 +1,6 @@
 import React from "react";
 import { MBTI_DESCRIPTIONS } from "../../utils/constants";
+import IntpCard from "./IntpCard";
 
 const test = "border-intp";
 
@@ -30,24 +31,30 @@ const MbtiCard = ({ data }) => {
 
   return (
     // <li className="flex flex-col items-center gap-3 p-4 border border-grey-500 rounded-lg w-52 h-52">
-    <li
-      className={`w-[230px] h-[230px] flex flex-col items-center justify-between gap-3 p-4 border-4 border-${mbtiColor} rounded-lg`}
-    >
-      <div>
-        <div className={`flex flex-col items-center text-${colorVariants[data.mbti]}`}>
+    <>
+      {data.mbti !== "intp" ? (
+        <li
+          className={`w-[190px] h-[254px] flex flex-col items-center justify-between gap-3 p-4 border-4 border-${mbtiColor} rounded-lg`}
+        >
           <div>
-            <span className={`text-2xl text-${mbtiColor}`}>{data.mbti.toUpperCase()}</span>
+            <div className={`flex flex-col items-center text-${colorVariants[data.mbti]}`}>
+              <div>
+                <span className={`text-2xl text-${mbtiColor}`}>{data.mbti.toUpperCase()}</span>
+              </div>
+              <p>{MBTI_DESCRIPTIONS[data.mbti].keyword}</p>
+            </div>
           </div>
-          <p>{MBTI_DESCRIPTIONS[data.mbti].keyword}</p>
-        </div>
-      </div>
-      <div>
-        <p>{MBTI_DESCRIPTIONS[data.mbti].description}</p>
-      </div>
-      <div>
-        <p>{data.nickname}</p>
-      </div>
-    </li>
+          <div>
+            <p>{MBTI_DESCRIPTIONS[data.mbti].description}</p>
+          </div>
+          <div>
+            <p>{data.nickname}</p>
+          </div>
+        </li>
+      ) : (
+        <IntpCard></IntpCard>
+      )}
+    </>
   );
 };
 
