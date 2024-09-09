@@ -21,11 +21,11 @@ export const useAddTestResult = () => {
   return mutate
 }
 
-const PatchBatchProfile = async ({ userId, nickname }) => {
+const patchBatchProfile = async ({ userId, nickname }) => {
   const testResults = await testApi.getPrivateTestResults(userId);
 
   const updatePromises = testResults.map(item => {
-    return testApi.PatchBatchProfile(item.id, nickname);
+    return testApi.patchBatchProfile(item.id, nickname);
   })
   Promise.all(updatePromises);
 }
@@ -34,9 +34,22 @@ export const usePatchBatchProfile = () => {
   const queryClient = useQueryClient();
 
   const { mutate } = useMutation({
-    mutationFn: PatchBatchProfile,
+    mutationFn: patchBatchProfile,
     onSuccess: () => {
       console.log('모든 유저 정보 수정 완료')
+      queryClient.invalidateQueries(["test-results"]);
+    }
+  });
+  return mutate;
+}
+
+export const useDeleteTestResult = () => {
+  const queryClient = useQueryClient();
+
+  const { mutate } = useMutation({
+    mutationFn: testApi.deleteTestResult,
+    onSuccess: () => {
+      alert("삭제 완료");
       queryClient.invalidateQueries(["test-results"]);
     }
   });

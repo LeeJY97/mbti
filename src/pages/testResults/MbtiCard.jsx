@@ -1,9 +1,11 @@
+import { useDeleteTestResult } from "../../hooks/testMutates";
 import { MBTI_DESCRIPTIONS } from "../../utils/constants";
 import { useUser } from "../../zustand/authStore";
 import IntpCard from "./IntpCard";
 
 const MbtiCard = ({ data }) => {
   const { userinfo } = useUser();
+  const mutateDeleteTestResult = useDeleteTestResult();
 
   return (
     // <li className="flex flex-col items-center gap-3 p-4 border border-grey-500 rounded-lg w-52 h-52">
@@ -28,7 +30,12 @@ const MbtiCard = ({ data }) => {
         </div>
         {data.userId === userinfo.id ? (
           <div className="flex justify-between items-center gap-4">
-            <button className="w-[50px] h-[20px] text-white bg-red-500 rounded-s-xl rounded-e-xl text-xs">삭제</button>
+            <button
+              onClick={() => mutateDeleteTestResult(data.id)}
+              className="w-[50px] h-[20px] text-white bg-red-500 rounded-s-xl rounded-e-xl text-xs"
+            >
+              삭제
+            </button>
             {data.visible && (
               <button className="w-[50px] h-[20px] text-white bg-red-500 rounded-s-xl rounded-e-xl text-xs">
                 숨기기
