@@ -1,9 +1,8 @@
-import testApi from "../../axios/test";
-import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTest, useTestAction } from "../../zustand/testStore";
 import { useUser } from "../../zustand/authStore";
 import { getSummaryTest, validateTest } from "../../utils";
-import { useGetTestsQuery } from "../../hooks/testHooks";
+import { useGetTestsQuery } from "../../hooks/testQueries";
+import { useAddTestResult } from "../../hooks/testMutates";
 
 // const testTestResult = {
 //   e: 20,
@@ -23,33 +22,10 @@ const Test = () => {
   const { selected } = useTest();
   const { setSelected } = useTestAction();
   const { isLoggedIn, userinfo } = useUser();
-  const queryClient = useQueryClient();
 
-  const {
-    data: tests,
-    isPending,
-    isError
-  } = useQuery({
-    queryKey: ["test"],
-    queryFn: useGetTestsQuery
-  });
+  const { data: tests, isPending, isError } = useGetTestsQuery();
 
-  const { mutate } = useMutation({
-    mutationFn: addTestResult,
-    onSuccess: () => {
-      alert("성공");
-      queryClient.invalidateQueries(["testResults"]);
-    }
-  });
-
-  async function addTestResult(testResult) {
-    try {
-      await testApi.post("/testResults", testResult);
-    } catch (e) {
-      alert("뭔가 에러");
-      console.error(e.message);
-    }
-  }
+  const mutateAddTestResult = useAddTestResult();
 
   async function handleTestResult() {
     if (validateTest(tests, selected)) {
@@ -58,7 +34,7 @@ const Test = () => {
         testResult.userId = userinfo.id;
         testResult.nickname = userinfo.nickname;
 
-        mutate(testResult);
+        mutateAddTestResult(testResult);
       }
     }
   }

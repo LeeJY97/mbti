@@ -1,6 +1,6 @@
 import { useUser } from "../../zustand/authStore";
 import { MBTI_DESCRIPTIONS } from "../../utils/constants";
-import { useGetPrivateTestResultsQuery } from "../../hooks/testHooks";
+import { useGetPrivateTestResultsQuery } from "../../hooks/testQueries";
 
 const MyTestResult = () => {
   const { userinfo } = useUser();

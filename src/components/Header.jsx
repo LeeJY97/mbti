@@ -6,8 +6,6 @@ const Header = () => {
   const { userinfo } = useUser();
   const { signOut } = useUserAction();
 
-  console.log("userinfo", userinfo);
-
   return (
     <ul className="flex justify-center w-screen gap-1 border-b-2 h-12">
       <li className={pathname === "/test" ? "bg-blue-500 text-white p-2 rounded" : "p-2"}>

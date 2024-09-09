@@ -1,6 +1,5 @@
 import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
-import testApi from "../axios/test";
 
 const testStore = create(immer((set) => {
   return {
@@ -11,7 +10,6 @@ const testStore = create(immer((set) => {
           state.selected[id] = answer;
         })
       },
-
     }
   }
 }))

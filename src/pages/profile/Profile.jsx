@@ -1,11 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useUser, useUserAction } from "../../zustand/authStore";
-import { useTestAction } from "../../zustand/testStore";
+import { usePatchBatchProfile } from "../../hooks/testMutates";
 
 const Profile = () => {
   const { userinfo } = useUser();
   const { updateProfile } = useUserAction();
-  const { PatchBatchProfile } = useTestAction();
   const [inputActive, setInputActive] = useState(false);
   const [nickname, setNickname] = useState(userinfo?.nickname);
   const inputRef = useRef();
@@ -16,10 +15,12 @@ const Profile = () => {
     }
   }, [inputActive]);
 
+  const mutateProfile = usePatchBatchProfile();
+
   const handleUpdateUser = () => {
     updateProfile({ nickname });
     setInputActive(false);
-    PatchBatchProfile({ userId: userinfo.id, nickname });
+    mutateProfile({ userId: userinfo.id, nickname });
   };
 
   return (

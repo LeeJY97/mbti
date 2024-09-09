@@ -47,7 +47,6 @@ const userStore = create(
         signOut: () => {
           sessionStorage.removeItem('token');
           set((state) => {
-            console.log("signOut");
             state.token = "";
             state.isLoggedIn = false;
             state.userinfo = {};

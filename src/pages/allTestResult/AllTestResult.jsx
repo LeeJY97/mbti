@@ -1,6 +1,5 @@
-import { useQuery } from "@tanstack/react-query";
 import { MBTI_DESCRIPTIONS } from "../../utils/constants";
-import { useGetAllTestResultsQuery } from "../../hooks/testHooks";
+import { useGetAllTestResultsQuery } from "../../hooks/testQueries";
 
 const AllTestResult = () => {
   const { data: testResults, isPending: isTestResultsPending } = useGetAllTestResultsQuery();

@@ -10,8 +10,6 @@ const getToken = () => {
 
 const register = async (userFormData) => {
   const data = await api.post("/register", userFormData);
-
-  console.log('data', data);
   return data;
 }
 
@@ -34,8 +32,6 @@ const patchProfile = async (updateUserinfo) => {
 api.interceptors.request.use(
   (config) => {
     const token = getToken();
-
-    console.log('token', token);
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -45,11 +41,9 @@ api.interceptors.request.use(
 
 api.interceptors.response.use(
   (response) => {
-    console.log(`Success '${response.config.url}'`);
     return response;
   },
   (error) => {
-    console.log("응답 실패", error);
     alert(error.response.data.message);
   }
 )

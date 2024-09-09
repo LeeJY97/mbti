@@ -16,19 +16,19 @@ function App() {
 
         if (userData) {
           setAuth(userData);
-          setIsAuthChecked(true);
         }
       }
       sessionStorage.removeItem("token");
-      setIsAuthChecked(true);
     };
-
+    setIsAuthChecked(true);
     initAuth();
   }, []);
 
   setTimeout(() => {
     setTestTime(true);
   }, 3000);
+
+  console.log("isAuthChecked", isAuthChecked);
 
   if (!isAuthChecked || !testTime) {
     return <>??????</>;
