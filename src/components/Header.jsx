@@ -11,7 +11,7 @@ const Header = () => {
   return (
     <div className="bg-main-color border-b-2">
       {/* <div className="w-[600px] flex justify-between "> */}
-      <div className="flex justify-around">
+      <div className="flex justify-around min-w-[600px]">
         <div className="w-[300px] flex flex-col justify-center">
           <h2 className="">MBTI</h2>
         </div>

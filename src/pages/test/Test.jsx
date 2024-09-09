@@ -49,7 +49,7 @@ const Test = () => {
       <div className="h-[200px] bg-dark-color"></div>
       {isPending && <Loading />}
       {!isPending && <TestList data={tests} />}
-      <div className="flex justify-center mx-auto">
+      <div className="w-[650px]  flex justify-center mx-auto">
         <button className="bg-slate-500" onClick={handleTestResult}>
           제출
         </button>

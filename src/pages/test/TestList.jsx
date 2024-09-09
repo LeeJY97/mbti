@@ -7,7 +7,7 @@ const TestList = ({ data }) => {
   return (
     <ul className="flex flex-col items-center gap-4 bg-white ">
       {data.map((test) => (
-        <li key={test.id} className="w-[800px] h-[100px] flex flex-col items-center justify-around bg-blue-50">
+        <li key={test.id} className="w-[650px] h-[100px] flex flex-col items-center justify-around bg-blue-50">
           <h2>{test.question}</h2>
           <div className="flex justify-center gap-10">
             <span>네</span>
