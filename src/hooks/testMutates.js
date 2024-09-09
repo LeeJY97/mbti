@@ -30,6 +30,27 @@ const patchBatchProfile = async ({ userId, nickname }) => {
   Promise.all(updatePromises);
 }
 
+// const testVisible = async ({ id, visible }) => {
+//   console.log('id', id);
+//   console.log('visible', visible);
+
+
+// }
+
+
+export const usePatchVisible = () => {
+  const queryClient = useQueryClient();
+
+  const { mutate } = useMutation({
+    mutationFn: testApi.patchVisible,
+    onSuccess: () => {
+      queryClient.invalidateQueries(['test-results']);
+    }
+  })
+  return mutate;
+}
+
+
 export const usePatchBatchProfile = () => {
   const queryClient = useQueryClient();
 
@@ -47,7 +68,8 @@ export const useDeleteTestResult = () => {
   const queryClient = useQueryClient();
 
   const { mutate } = useMutation({
-    mutationFn: testApi.deleteTestResult,
+    // mutationFn: testApi.deleteTestResult,
+    mutationFn: testApi.tempVisible,
     onSuccess: () => {
       alert("삭제 완료");
       queryClient.invalidateQueries(["test-results"]);

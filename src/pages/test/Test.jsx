@@ -52,6 +52,7 @@ const Test = () => {
         const testResult = getSummaryTest(tests, selected);
         testResult.userId = userinfo.id;
         testResult.nickname = userinfo.nickname;
+        testResult.visible = true;
 
         mutateAddTestResult(testResult);
 
@@ -87,7 +88,7 @@ const Test = () => {
           <span className="front"></span>
         </button> */}
         <button className="w-[50px] h-[30px] bg-black text-white rounded-s-xl rounded-e-xl" onClick={handleTestResult}>
-          제출
+          완료!
         </button>
       </div>
     </>

@@ -31,6 +31,11 @@ const deleteTestResult = (id) => {
   return api.delete(`/testResults/${id}`);
 }
 
+const patchVisible = async ({ id, visible }) => {
+  console.log('patchVisible', visible);
+  return api.patch(`/testResults/${id}`, { visible: !visible });
+}
+
 const tempVisible = async () => {
   const data = await getAllTestResults();
 
@@ -46,6 +51,7 @@ const testApi = {
   getPrivateTestResults,
   patchBatchProfile,
   deleteTestResult,
+  patchVisible,
   tempVisible
 }
 
