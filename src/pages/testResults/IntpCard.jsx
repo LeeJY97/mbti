@@ -4,7 +4,7 @@ import "./intpCard.css";
 
 const IntpCard = () => {
   return (
-    <div className="container noselect">
+    <div className="card-container noselect">
       <div className="canvas">
         <div className="tracker tr-1"></div>
         <div className="tracker tr-2"></div>

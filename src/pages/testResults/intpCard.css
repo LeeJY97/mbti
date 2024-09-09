@@ -1,11 +1,11 @@
-.container {
+.card-container {
   position: relative;
   width: 190px;
   height: 254px;
   transition: 200ms;
 }
 
-.container:active {
+.card-container:active {
   width: 180px;
   height: 245px;
 }
@@ -70,7 +70,7 @@
   filter: brightness(1.1);
 }
 
-.container:hover #card::before {
+.card-container:hover #card::before {
   transition: 200ms;
   content: "";
   opacity: 80%;

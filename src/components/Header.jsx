@@ -9,7 +9,7 @@ const Header = () => {
   const { signOut } = useUserAction();
 
   return (
-    <div className="bg-main-color border-b-2">
+    <div className="bg-main-color fixed w-full left-0 top-0 h-[40px] z-[9999]">
       {/* <div className="w-[600px] flex justify-between "> */}
       <div className="flex justify-around min-w-[600px]">
         <div className="w-[300px] flex flex-col justify-center">

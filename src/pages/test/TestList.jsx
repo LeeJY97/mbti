@@ -5,9 +5,10 @@ const TestList = ({ data }) => {
   const { setSelected } = useTestAction();
 
   return (
-    <ul className="flex flex-col items-center gap-4 bg-white ">
+    <ul className="flex flex-col items-center gap-4 bg-light-color ">
       {data.map((test) => (
-        <li key={test.id} className="w-[650px] h-[100px] flex flex-col items-center justify-around bg-blue-50">
+        // <li key={test.id} className="w-[650px] h-[100px] flex flex-col items-center justify-around bg-blue-50">
+        <li key={test.id} className="w-[650px] h-[150px] flex flex-col items-center justify-around border-b p-4">
           <h2>{test.question}</h2>
           <div className="flex justify-center gap-10">
             <span>네</span>

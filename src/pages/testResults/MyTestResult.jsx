@@ -1,6 +1,6 @@
 import { useUser } from "../../zustand/authStore";
 import { useGetPrivateTestResultsQuery } from "../../hooks/testQueries";
-import MbtiCard from "../allTestResult/MbtiCard";
+import MbtiCard from "./MbtiCard";
 
 const MyTestResult = () => {
   const { userinfo } = useUser();
@@ -12,7 +12,7 @@ const MyTestResult = () => {
   }
 
   return (
-    <ul className="flex flex-row flex-wrap  gap-10">
+    <ul className="flex flex-wrap gap-10 justify-center ">
       {testResults.map((result) => (
         <MbtiCard key={result.id} data={result} />
       ))}

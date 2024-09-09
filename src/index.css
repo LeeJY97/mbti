@@ -11,6 +11,7 @@
 
 body {
   font-family: "Pretendard-Regular";
+  padding-top: 100px;
 }
 
 .custom-header-item {
@@ -21,4 +22,9 @@ body {
   content: "";
   display: block;
   border-top: 3px solid #f3f3f3; /* 색상은 원하는 대로 설정 */
+}
+
+.custom-progress-bar {
+  /* @apply h-[20px] bg-dark-color w-full top-[40px] left-0; */
+  @apply absolute top-0 left-0 h-full bg-[#758694];
 }

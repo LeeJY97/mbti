@@ -1,8 +1,8 @@
 import SignUp from "../pages/sign/SignUp";
 import SignIn from "../pages/sign/SignIn";
 import Index from "../pages";
-import MyTestResult from "../pages/myTestResult/MyTestResult";
-import AllTestResult from "../pages/allTestResult/AllTestResult";
+import MyTestResult from "../pages/testResults/MyTestResult";
+import AllTestResult from "../pages/testResults/AllTestResult";
 import { LoginProtectedRoute } from "./LoginProtectedRoute";
 import { NotLoginProtectedRoute } from "./NotLoginProtectedRoute";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";

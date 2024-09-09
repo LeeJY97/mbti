@@ -34,14 +34,14 @@ const MbtiCard = ({ data }) => {
     <>
       {data.mbti !== "intp" ? (
         <li
-          className={`w-[190px] h-[254px] flex flex-col items-center justify-between gap-3 p-4 border-4 border-${mbtiColor} rounded-lg`}
+          className={`w-[190px] h-[254px] flex flex-col items-center justify-between gap-3 p-4 border-4 border-${data.mbti} rounded-lg`}
         >
           <div>
             <div className={`flex flex-col items-center text-${colorVariants[data.mbti]}`}>
               <div>
-                <span className={`text-2xl text-${mbtiColor}`}>{data.mbti.toUpperCase()}</span>
+                <span className={`text-2xl text-${data.mbti}`}>{data.mbti.toUpperCase()}</span>
               </div>
-              <p>{MBTI_DESCRIPTIONS[data.mbti].keyword}</p>
+              <p className={`text-2xl text-${data.mbti}`}>{MBTI_DESCRIPTIONS[data.mbti].keyword}</p>
             </div>
           </div>
           <div>
