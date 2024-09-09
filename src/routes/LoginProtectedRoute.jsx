@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import { useUser } from "../zustand/authStore";
 
 export const LoginProtectedRoute = () => {
-  const { isLoggedIn, validateToken } = useUser();
+  const { isLoggedIn } = useUser();
 
   if (!isLoggedIn) {
     return <Navigate to="/auth/sign-in" replace />;

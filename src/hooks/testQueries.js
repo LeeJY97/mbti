@@ -16,8 +16,6 @@ const getPrivateTestResults = async (userId) => {
   return privateTestResults;
 };
 
-
-
 export const useGetTestsQuery = () => {
   return useQuery({
     queryKey: ["test"],
