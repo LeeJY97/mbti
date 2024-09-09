@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.custom-header-item {
+  @apply p-2;
+}
+
+.custom-header-item-after::after {
+  content: "";
+  display: block;
+  border-top: 3px solid #f3f3f3; /* 색상은 원하는 대로 설정 */
+}

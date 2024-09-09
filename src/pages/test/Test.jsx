@@ -3,6 +3,7 @@ import { useUser } from "../../zustand/authStore";
 import { getSummaryTest, validateTest } from "../../utils";
 import { useGetTestsQuery } from "../../hooks/testQueries";
 import { useAddTestResult } from "../../hooks/testMutates";
+import { useEffect } from "react";
 
 // const testTestResult = {
 //   e: 20,
@@ -38,6 +39,10 @@ const Test = () => {
       }
     }
   }
+
+  useEffect(() => {
+    console.log("선택");
+  }, [selected]);
 
   if (isPending) {
     return <div>로딩중. . .</div>;
