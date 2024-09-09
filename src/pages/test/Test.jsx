@@ -6,6 +6,7 @@ import { useAddTestResult } from "../../hooks/testMutates";
 import { useEffect, useState } from "react";
 import Loading from "../../components/Loading";
 import TestList from "./TestList";
+import "./test.css";
 import { useNavigate } from "react-router-dom";
 
 // const testTestResult = {
@@ -80,8 +81,12 @@ const Test = () => {
       </div>
       {isPending && <Loading />}
       {!isPending && <TestList data={tests} />}
-      <div className="w-[650px]  flex justify-center mx-auto">
-        <button className="bg-slate-500" onClick={handleTestResult}>
+      <div className="w-[650px] mt-10 flex justify-center mx-auto">
+        {/* <button className="btn-class-name">
+          <span className="back"></span>
+          <span className="front"></span>
+        </button> */}
+        <button className="w-[50px] h-[30px] bg-black text-white rounded-s-xl rounded-e-xl" onClick={handleTestResult}>
           제출
         </button>
       </div>

@@ -115,3 +115,10 @@ export const generateRandomNickname = () => {
   const randomAnimal = getRandomElement(nickname.animals);
   return `${randomDeterminer}${randomAnimal}`;
 };
+
+export function getTodayMonth() {
+  const today = new Date();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const year = today.getFullYear().toString().slice(-2);
+  return `${month}/${year}`;
+}
