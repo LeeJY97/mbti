@@ -5,6 +5,7 @@ import { useGetTestsQuery } from "../../hooks/testQueries";
 import { useAddTestResult } from "../../hooks/testMutates";
 import { useEffect } from "react";
 import Loading from "../../components/Loading";
+import TestList from "./TestList";
 
 // const testTestResult = {
 //   e: 20,
@@ -22,11 +23,9 @@ import Loading from "../../components/Loading";
 
 const Test = () => {
   const { selected } = useTest();
-  const { setSelected } = useTestAction();
+  // const { setSelected } = useTestAction();
   const { isLoggedIn, userinfo } = useUser();
-
   const { data: tests, isPending, isError } = useGetTestsQuery();
-
   const mutateAddTestResult = useAddTestResult();
 
   async function handleTestResult() {
@@ -41,36 +40,15 @@ const Test = () => {
     }
   }
 
-  if (isPending) {
-    return <Loading />;
-  }
   if (isError) {
     return <>데이터 조회 에러</>;
   }
 
   return (
     <>
-      <ul className="flex flex-col items-center gap-4">
-        {tests.map((test) => (
-          <li key={test.id} className="flex flex-col items-center">
-            <h2>{test.question}</h2>
-            <div className="flex justify-center gap-10">
-              <button
-                onClick={() => setSelected(test.id, "y")}
-                className={selected[test.id] === "y" ? "bg-blue-400" : ""}
-              >
-                네
-              </button>
-              <button
-                onClick={() => setSelected(test.id, "n")}
-                className={selected[test.id] === "n" ? "bg-blue-400" : ""}
-              >
-                아니요
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div className="h-[200px] bg-dark-color"></div>
+      {isPending && <Loading />}
+      {!isPending && <TestList data={tests} />}
       <div className="flex justify-center mx-auto">
         <button className="bg-slate-500" onClick={handleTestResult}>
           제출
