@@ -13,6 +13,12 @@ export default {
     },
     fontFamily: {
       'sans': ['ui-sans-serif', 'system-ui'],
+    },
+    colors: {
+      'main-color': '#48CFCB',
+      'sub-color': '#229799',
+      'light-color': '#F5F5F5',
+      'dark-color': '#424242'
     }
   },
   plugins: [],

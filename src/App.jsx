@@ -5,7 +5,6 @@ import { useUserAction } from "./zustand/authStore";
 function App() {
   // 여기에 새로고침 하면 token ...
   const [isAuthChecked, setIsAuthChecked] = useState(false);
-  const [testTime, setTestTime] = useState(false);
   const { validateToken, setAuth } = useUserAction();
 
   useEffect(() => {
@@ -24,13 +23,9 @@ function App() {
     initAuth();
   }, []);
 
-  setTimeout(() => {
-    setTestTime(true);
-  }, 3000);
-
   console.log("isAuthChecked", isAuthChecked);
 
-  if (!isAuthChecked || !testTime) {
+  if (!isAuthChecked) {
     return <>??????</>;
   }
   return (
