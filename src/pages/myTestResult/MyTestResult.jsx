@@ -1,16 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
 import { useUser } from "../../zustand/authStore";
 import { MBTI_DESCRIPTIONS } from "../../utils/constants";
-import { useTestAction } from "../../zustand/testStore";
+import { useGetPrivateTestResultsQuery } from "../../hooks/testHooks";
 
 const MyTestResult = () => {
   const { userinfo } = useUser();
-  const { getPrivateTestResults } = useTestAction();
 
-  const { data: testResults, isPending: isTestResultsPending } = useQuery({
-    queryKey: ["testResults"],
-    queryFn: () => getPrivateTestResults(userinfo.id)
-  });
+  const { data: testResults, isPending: isTestResultsPending } = useGetPrivateTestResultsQuery(userinfo.id);
 
   if (isTestResultsPending) {
     return <>로딩중 . . .</>;

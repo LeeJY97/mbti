@@ -30,10 +30,19 @@ const userStore = create(
             }
           });
         },
+        setAuth: (userData) => {
+          set((state) => {
+            state.isLoggedIn = true;
+            state.userinfo = {
+              id: userData.id,
+              nickname: userData.nickname
+            }
+          })
+        },
 
         validateToken: async () => {
           const data = await authApi.user();
-          console.log('validateToken data', data);
+          return data;
         },
         signOut: () => {
           sessionStorage.removeItem('token');

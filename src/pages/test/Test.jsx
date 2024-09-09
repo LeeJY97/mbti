@@ -3,20 +3,21 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useTest, useTestAction } from "../../zustand/testStore";
 import { useUser } from "../../zustand/authStore";
 import { getSummaryTest, validateTest } from "../../utils";
+import { useGetTestsQuery } from "../../hooks/testHooks";
 
-const testTestResult = {
-  e: 20,
-  s: 20,
-  f: 20,
-  j: 20,
-  i: 0,
-  n: 0,
-  t: 0,
-  p: 0,
-  mbti: "esfj",
-  userId: "mbti-test-admin",
-  nickname: "푸른여우"
-};
+// const testTestResult = {
+//   e: 20,
+//   s: 20,
+//   f: 20,
+//   j: 20,
+//   i: 0,
+//   n: 0,
+//   t: 0,
+//   p: 0,
+//   mbti: "esfj",
+//   userId: "mbti-test-admin",
+//   nickname: "푸른여우"
+// };
 
 const Test = () => {
   const { selected } = useTest();
@@ -30,7 +31,7 @@ const Test = () => {
     isError
   } = useQuery({
     queryKey: ["test"],
-    queryFn: fetchTest
+    queryFn: useGetTestsQuery
   });
 
   const { mutate } = useMutation({
@@ -40,11 +41,6 @@ const Test = () => {
       queryClient.invalidateQueries(["testResults"]);
     }
   });
-
-  async function fetchTest() {
-    const { data } = await testApi.get("/test");
-    return data;
-  }
 
   async function addTestResult(testResult) {
     try {

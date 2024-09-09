@@ -20,8 +20,9 @@ const login = async (userFormData) => {
   return data;
 }
 
+// 유저 토큰 확인
 const user = async () => {
-  const { data } = await api.getUser("/user");
+  const { data } = await api.get("/user");
   return data;
 }
 

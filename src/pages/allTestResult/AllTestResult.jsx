@@ -1,14 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { MBTI_DESCRIPTIONS } from "../../utils/constants";
-import { useTestAction } from "../../zustand/testStore";
+import { useGetAllTestResultsQuery } from "../../hooks/testHooks";
 
 const AllTestResult = () => {
-  const { getAllTestResults } = useTestAction();
-
-  const { data: testResults, isPending: isTestResultsPending } = useQuery({
-    queryKey: ["testResults"],
-    queryFn: () => getAllTestResults()
-  });
+  const { data: testResults, isPending: isTestResultsPending } = useGetAllTestResultsQuery();
 
   if (isTestResultsPending) {
     return <div>로딩중. . . </div>;
