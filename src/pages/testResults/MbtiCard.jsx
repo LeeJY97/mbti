@@ -7,6 +7,8 @@ const MbtiCard = ({ data }) => {
   const mutateDeleteTestResult = useDeleteTestResult();
   const mutatePatchVisible = usePatchVisible();
 
+  console.log("data", data);
+
   return (
     // <li className="flex flex-col items-center gap-3 p-4 border border-grey-500 rounded-lg w-52 h-52">
     <>
@@ -34,12 +36,14 @@ const MbtiCard = ({ data }) => {
           <div className="pl-1 pr-1">
             <p className="text-slate-400 text-xs">▷ {MBTI_DESCRIPTIONS[data.mbti].description}</p>
           </div>
-          {data.userId === userinfo.id ? (
-            <div className="flex justify-between items-center pb-2 pl-1 pr-1">
-              <div className="flex gap-4 items-start text-slate-400 text-xs">
-                <p>{data.nickname}</p>
-                <p>{data.todayMonth}</p>
-              </div>
+
+          <div className="flex justify-between items-center pb-2 pl-1 pr-1">
+            <div className="flex gap-4 items-start text-slate-400 text-xs">
+              <p>{data.nickname}</p>
+              <p>{data.todayMonth}</p>
+            </div>
+
+            {data.userId === userinfo.id ? (
               <div className="flex gap-1 items-start">
                 <button
                   onClick={() => mutateDeleteTestResult(data.id)}
@@ -64,10 +68,10 @@ const MbtiCard = ({ data }) => {
                   </button>
                 )}
               </div>
-            </div>
-          ) : (
-            <div className="h-[20px]"></div>
-          )}
+            ) : (
+              <div className="h-[20px]"></div>
+            )}
+          </div>
         </li>
         // <li
         //   className={`w-[204px] h-[326px] flex flex-col items-center justify-between gap-3 p-4 border-4 border-${data.mbti} rounded-lg relative`}
