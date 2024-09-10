@@ -1,5 +1,5 @@
+import { useUser, useUserAction } from "@/zustand/authStore";
 import { Link, useLocation } from "react-router-dom";
-import { useUser, useUserAction } from "../zustand/authStore";
 
 const customHeaderStyle = "custom-header-item custom-header-item-after";
 

@@ -2,7 +2,10 @@ import "./index.css";
 import { useEffect, useState } from "react";
 import { useUserAction } from "./zustand/authStore";
 import Loading from "./components/Loading";
-import Routes from "./routes/TestIndex";
+import Routes from "/src/routes/TestIndex";
+
+// import Routes from "./routes/TestIndex";
+
 function App() {
   // 여기에 새로고침 하면 token ...
   const [isAuthChecked, setIsAuthChecked] = useState(false);
