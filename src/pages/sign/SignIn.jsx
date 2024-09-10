@@ -1,7 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import AuthForm from "./AuthForm";
 import { useUserAction } from "../../zustand/authStore";
-import styled from "styled-components";
 
 const ToggleLink = () => {
   return <Link to="/auth/sign-up">아직 회원이 아니신가요?</Link>;
