@@ -20,7 +20,8 @@ const MbtiCard = ({ data }) => {
         >
           <div className="flex w-full items-center justify-between top-0 left-0 text-xs border-stone-500 border-b-2 p-2">
             <p className="font-bold text-slate-400">{data.mbti.toUpperCase()}</p>
-            <p className="font-bold text-slate-400">{data.nickname}</p>
+            <p className="font-bold text-slate-400">{MBTI_DESCRIPTIONS[data.mbti].keyword}</p>
+            {/* <p className="font-bold text-slate-400">{data.nickname}</p> */}
             {/* <p className="font-bold">09/24</p> */}
           </div>
           {/* <div>
@@ -36,7 +37,10 @@ const MbtiCard = ({ data }) => {
           </div>
           {data.userId === userinfo.id ? (
             <div className="flex justify-between items-center pb-2 pl-1 pr-1">
-              <div className="flex gap-1 items-start text-slate-400 text-xs">09/24</div>
+              <div className="flex gap-4 items-start text-slate-400 text-xs">
+                <p>{data.nickname}</p>
+                <p>{data.todayMonth}</p>
+              </div>
               <div className="flex gap-1 items-start">
                 <button
                   onClick={() => mutateDeleteTestResult(data.id)}

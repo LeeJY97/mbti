@@ -2,6 +2,7 @@ import Routes from "./routes";
 import "./index.css";
 import { useEffect, useState } from "react";
 import { useUserAction } from "./zustand/authStore";
+import Loading from "./components/Loading";
 function App() {
   // 여기에 새로고침 하면 token ...
   const [isAuthChecked, setIsAuthChecked] = useState(false);
@@ -26,7 +27,7 @@ function App() {
   console.log("isAuthChecked", isAuthChecked);
 
   if (!isAuthChecked) {
-    return <>??????</>;
+    return <Loading />;
   }
   return (
     <>

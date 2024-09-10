@@ -1,6 +1,6 @@
 import { useTest, useTestAction } from "../../zustand/testStore";
 import { useUser } from "../../zustand/authStore";
-import { getSummaryTest, validateTest } from "../../utils";
+import { getSummaryTest, getTodayMonth, validateTest } from "../../utils";
 import { useGetTestsQuery } from "../../hooks/testQueries";
 import { useAddTestResult } from "../../hooks/testMutates";
 import { useEffect, useState } from "react";
@@ -9,23 +9,7 @@ import TestList from "./TestList";
 import "./test.css";
 import { useNavigate } from "react-router-dom";
 
-// const testTestResult = {
-//   e: 20,
-//   s: 20,
-//   f: 20,
-//   j: 20,
-//   i: 0,
-//   n: 0,
-//   t: 0,
-//   p: 0,
-//   mbti: "esfj",
-//   userId: "mbti-test-admin",
-//   nickname: "푸른여우"
-// };
-
 const getProgressBarWidth = (tests, selected) => {
-  // return
-
   const totalLength = tests ? tests.length : 0;
   let targetLength = 0;
   if (selected) {
@@ -53,6 +37,7 @@ const Test = () => {
         testResult.userId = userinfo.id;
         testResult.nickname = userinfo.nickname;
         testResult.visible = true;
+        testResult.todayMonth = getTodayMonth();
 
         mutateAddTestResult(testResult);
 
@@ -61,6 +46,7 @@ const Test = () => {
     }
   }
 
+  // TODO progressBar 커스텀 훅으로 분리 ?
   useEffect(() => {
     const percentage = getProgressBarWidth(tests, selected);
     setProgressBarWidth(percentage);

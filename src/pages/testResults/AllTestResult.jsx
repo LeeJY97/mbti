@@ -1,3 +1,4 @@
+import Loading from "../../components/Loading";
 import { useGetAllTestResultsQuery } from "../../hooks/testQueries";
 import MbtiCard from "./MbtiCard";
 
@@ -5,7 +6,7 @@ const AllTestResult = () => {
   const { data: testResults, isPending: isTestResultsPending } = useGetAllTestResultsQuery();
 
   if (isTestResultsPending) {
-    return <div>로딩중. . . </div>;
+    return <Loading />;
   }
 
   return (
