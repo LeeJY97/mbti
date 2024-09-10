@@ -72,25 +72,26 @@ const Test = () => {
 
   return (
     <>
-      <div className="h-[20px] bg-dark-color fixed w-full top-[40px] left-0">
-        {/* <div className=".custom-progress-bar"> */}
+      <div className="h-[20px] bg-dark-color fixed w-full top-[40px] left-0 z-50">
         <div
-          className={`custom-progress-bar transition-all duration-500 ease-in-out`}
+          className={`custom-progress-bar transition-all duration-700 ease-in-out`}
           style={{ width: `${progressBarWidth}%` }}
         ></div>
-        {/* </div> */}
       </div>
       {isPending && <Loading />}
-      {!isPending && <TestList data={tests} />}
-      <div className="w-[650px] mt-10 flex justify-center mx-auto">
-        {/* <button className="btn-class-name">
-          <span className="back"></span>
-          <span className="front"></span>
-        </button> */}
-        <button className="w-[50px] h-[30px] bg-black text-white rounded-s-xl rounded-e-xl" onClick={handleTestResult}>
-          완료!
-        </button>
-      </div>
+      {!isPending && (
+        <>
+          <TestList data={tests} />
+          <div className="w-[650px] mt-10 flex justify-center mx-auto">
+            <button
+              className="w-[50px] h-[30px] bg-black text-white rounded-s-xl rounded-e-xl"
+              onClick={handleTestResult}
+            >
+              완료!
+            </button>
+          </div>
+        </>
+      )}
     </>
   );
 };

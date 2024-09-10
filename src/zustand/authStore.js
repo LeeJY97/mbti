@@ -3,18 +3,22 @@ import { create } from "zustand";
 import { immer } from "zustand/middleware/immer";
 
 const userStore = create(
-  immer((set) => {
+  immer((set, get) => {
     return {
+      // tanstack => initialState
+      // onSuccess => localStorage
       token: sessionStorage.getItem('token'),
       isLoggedIn: false,
       userinfo: null,
       action: {
         signUp: async (userFormData) => {
-          await authApi.register(userFormData);
+          authApi.register(userFormData);
 
-          set(async (state) => {
-            await state.action.signIn(userFormData);
-          })
+          // get().action.signIn 
+          // set(async (state) => {
+          //   await state.action.signIn(userFormData);
+          // });
+
         },
         signIn: async (userFormData) => {
           const userData = await authApi.login(userFormData);

@@ -9,7 +9,7 @@ const Layout = ({ children }) => {
       <Header />
       {/* <div className="w-[650px] mx-auto">{children}</div> */}
       {children}
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

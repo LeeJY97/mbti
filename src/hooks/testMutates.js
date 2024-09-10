@@ -30,13 +30,6 @@ const patchBatchProfile = async ({ userId, nickname }) => {
   Promise.all(updatePromises);
 }
 
-// const testVisible = async ({ id, visible }) => {
-//   console.log('id', id);
-//   console.log('visible', visible);
-
-
-// }
-
 
 export const usePatchVisible = () => {
   const queryClient = useQueryClient();

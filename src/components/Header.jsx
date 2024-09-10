@@ -13,7 +13,7 @@ const Header = () => {
       {/* <div className="w-[600px] flex justify-between "> */}
       <div className="flex justify-around min-w-[600px]">
         <div className="w-[300px] flex flex-col justify-center">
-          <h2 className="">MBTI</h2>
+          <h2 className="font-bold">MBTI</h2>
         </div>
         <ul className="w-[300px] text-sm flex justify-center gap-1">
           <li className={pathname === "/test" ? customHeaderStyle : "custom-header-item"}>
@@ -26,7 +26,7 @@ const Header = () => {
             <Link to="/all-test-result">타인</Link>
           </li>
         </ul>
-        <ul className="w-[300px] text-sm flex justify-center gap-1">
+        <ul className="w-[300px] text-sm flex justify-end gap-1">
           <li className={pathname === "/profile" ? customHeaderStyle : "custom-header-item"}>
             <Link to="/profile">{userinfo?.nickname}</Link>
           </li>

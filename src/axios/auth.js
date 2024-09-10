@@ -9,8 +9,8 @@ const getToken = () => {
 };
 
 const register = async (userFormData) => {
-  const data = await api.post("/register", userFormData);
-  return data;
+  api.post("/register", userFormData);
+
 }
 
 const login = async (userFormData) => {
@@ -37,6 +37,10 @@ api.interceptors.request.use(
     }
     return config;
   },
+  (error) => {
+    // throw error
+    return Promise.reject(error);
+  }
 );
 
 api.interceptors.response.use(
@@ -44,7 +48,9 @@ api.interceptors.response.use(
     return response;
   },
   (error) => {
-    alert(error.response.data.message);
+    // alert(error.response.data.message);
+    // throw error
+    return Promise.reject(error);
   }
 )
 const authApi = {
