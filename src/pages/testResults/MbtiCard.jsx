@@ -15,7 +15,7 @@ const MbtiCard = ({ data }) => {
         <></>
       ) : (
         <li
-          className={`w-[326px] h-[204px] mx-auto flex flex-col justify-between bg-gray-800 rounded-lg p-1 gap-3 p-4 rounded-lg relative`}
+          className={`w-[326px] h-[204px] flex flex-col justify-between bg-gray-800 rounded-lg p-1 gap-3 p-4 rounded-lg relative`}
         >
           <div className="flex w-full items-center justify-between top-0 left-0 text-xs border-stone-500 border-b-2 p-2">
             <p className="font-bold text-slate-400">{data.mbti.toUpperCase()}</p>

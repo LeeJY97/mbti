@@ -13,7 +13,7 @@ const MyTestResult = () => {
   }
 
   return (
-    <ul className="flex flex-wrap gap-10 justify-center ">
+    <ul className="flex flex-wrap gap-[48px] max-w-[1448px] mx-auto">
       {testResults.map((result) => (
         <MbtiCard key={result.id} data={result} />
       ))}

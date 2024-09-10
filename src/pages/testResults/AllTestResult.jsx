@@ -10,7 +10,7 @@ const AllTestResult = () => {
   }
 
   return (
-    <ul className="flex flex-row flex-wrap gap-10 justify-center">
+    <ul className="flex flex-row flex-wrap gap-1">
       {testResults.map((result) => (
         <MbtiCard key={result.id} data={result} />
       ))}
