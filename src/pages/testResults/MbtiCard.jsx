@@ -1,7 +1,6 @@
 import { useDeleteTestResult, usePatchVisible } from "../../hooks/testMutates";
 import { MBTI_DESCRIPTIONS } from "../../utils/constants";
 import { useUser } from "../../zustand/authStore";
-import IntpCard from "./IntpCard";
 
 const MbtiCard = ({ data }) => {
   const { userinfo } = useUser();
