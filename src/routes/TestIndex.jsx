@@ -1,13 +1,13 @@
-import SignUp from "../pages/sign/SignUp";
-import SignIn from "../pages/sign/SignIn";
-import Index from "../pages";
-import MyTestResult from "../pages/testResults/MyTestResult";
-import AllTestResult from "../pages/testResults/AllTestResult";
+import SignUp from "/src/pages/sign/SignUp";
+import SignIn from "/src/pages/sign/SignIn";
+import Index from "/src/pages";
+import MyTestResult from "/src/pages/testResults/MyTestResult";
+import AllTestResult from "/src/pages/testResults/AllTestResult";
 import { LoginProtectedRoute } from "./LoginProtectedRoute";
 import { NotLoginProtectedRoute } from "./NotLoginProtectedRoute";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
-import Test from "../pages/test/Test";
-import Profile from "../pages/profile/Profile";
+import Test from "/src/pages/test/Test";
+import Profile from "/src/pages/profile/Profile";
 
 const Routes = () => {
   const notAuthenticatedOnly = [

@@ -1,4 +1,4 @@
-import Routes from "./routes/TestIndex";
+import Routes from "/src/routes/TestIndex";
 import "./index.css";
 import { useEffect, useState } from "react";
 import { useUserAction } from "./zustand/authStore";
