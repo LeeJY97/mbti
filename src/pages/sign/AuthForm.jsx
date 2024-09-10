@@ -8,8 +8,8 @@ const StyledContainer = styled.div`
 `;
 
 const AuthForm = ({ type, action, ToggleLink }) => {
-  const [id, setId] = useState("admin");
-  const [password, setPassword] = useState("123123");
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
 
   const todayMonth = getTodayMonth();
   return (
