@@ -3,7 +3,7 @@ import { LoginProtectedRoute } from "./LoginProtectedRoute";
 import { NotLoginProtectedRoute } from "./NotLoginProtectedRoute";
 import { createBrowserRouter, Navigate, RouterProvider } from "react-router-dom";
 import SignIn from "@/pages/sign/SignIn";
-import Index from "@/pages/Index"; // index 지워보기
+import Index from "@/pages"; // index 지워보기
 import MyTestResult from "@/pages/testResults/MyTestResult";
 import AllTestResult from "@/pages/testResults/AllTestResult";
 import Test from "@/pages/test/Test";
