@@ -23,30 +23,6 @@ const SignUp = () => {
   };
 
   return <AuthForm type="회원가입" action={signUpHandler} ToggleLink={ToggleLink}></AuthForm>;
-
-  // return (
-  //   <AuthForm>
-  //     <h2 className="text-2xl">회원가입</h2>
-  //     <input
-  //       type="text"
-  //       value={id}
-  //       onChange={(e) => setId(e.target.value)}
-  //       placeholder="아이디를 입력하세요"
-  //       className="border border-grey-500 "
-  //     />
-  //     <input
-  //       type="password"
-  //       value={password}
-  //       onChange={(e) => setPassword(e.target.value)}
-  //       placeholder="비밀번호를 입력하세요"
-  //       className="border border-grey-500 "
-  //     />
-  //     <button onClick={() => signUp({ id: `mbti-test-${id}`, password, nickname })}>회원가입</button>
-  //     <Link to="/auth/sign-in">
-  //       <span>로그인</span>
-  //     </Link>
-  //   </AuthForm>
-  // );
 };
 
 export default SignUp;
