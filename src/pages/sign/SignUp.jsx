@@ -18,7 +18,7 @@ const SignUp = () => {
       await signIn({ id: `mbti-test-${id}`, password, nickname });
       navigate("/");
     } catch (e) {
-      alert(`로그인에 실패했습니다. ${e.response.data.message}`);
+      alert(`회원가입에 실패했습니다. ${e.response.data.message}`);
     }
   };
 

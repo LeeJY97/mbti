@@ -10,9 +10,15 @@ const SignIn = () => {
   const { signIn } = useUserAction();
   const navigate = useNavigate();
 
-  const signInHandler = (id, password) => {
-    if (signIn({ id: `mbti-test-${id}`, password })) {
+  const signInHandler = async (id, password) => {
+    // if (signIn({ id: `mbti-test-${id}`, password })) {
+    //   navigate("/");
+    // }
+    try {
+      await signIn({ id: `mbti-test-${id}`, password });
       navigate("/");
+    } catch (e) {
+      alert(`로그인에 실패했습니다. ${e.response.data.message}`);
     }
   };
 

@@ -22,7 +22,6 @@ const getProgressBarWidth = (tests, selected) => {
 const Test = () => {
   const { selected } = useTest();
   const { initSelected } = useTestAction();
-  // const { setSelected } = useTestAction();
   const { isLoggedIn, userinfo } = useUser();
   const { data: tests, isPending, isError } = useGetTestsQuery();
   const mutateAddTestResult = useAddTestResult();

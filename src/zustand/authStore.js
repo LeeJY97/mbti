@@ -13,9 +13,7 @@ const userStore = create(
       userinfo: null,
       action: {
         signUp: async (userFormData) => {
-          const data = await authApi.register(userFormData);
-
-          console.log('data', data);
+          await authApi.register(userFormData);
 
           // get().action.signIn 
           // set(async (state) => {
