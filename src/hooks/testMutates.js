@@ -62,7 +62,7 @@ export const useDeleteTestResult = () => {
 
   const { mutate } = useMutation({
     // mutationFn: testApi.deleteTestResult,
-    mutationFn: testApi.tempVisible,
+    mutationFn: testApi.deleteTestResult,
     onSuccess: () => {
       alert("삭제 완료");
       queryClient.invalidateQueries(["test-results"]);
