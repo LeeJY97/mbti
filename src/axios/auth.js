@@ -9,7 +9,7 @@ const getToken = () => {
 };
 
 const register = async (userFormData) => {
-  api.post("/register", userFormData);
+  return api.post("/register", userFormData);
 
 }
 

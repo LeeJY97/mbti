@@ -8,17 +8,17 @@ const ToggleLink = () => {
 };
 
 const SignUp = () => {
-  const { signUp } = useUserAction();
+  const { signUp, signIn } = useUserAction();
   const nickname = generateRandomNickname();
   const navigate = useNavigate();
 
   const signUpHandler = async (id, password) => {
     try {
       await signUp({ id: `mbti-test-${id}`, password, nickname });
-
-      // navigate("/");
+      await signIn({ id: `mbti-test-${id}`, password, nickname });
+      navigate("/");
     } catch (e) {
-      console.log("e", e);
+      alert(`로그인에 실패했습니다. ${e.response.data.message}`);
     }
   };
 
