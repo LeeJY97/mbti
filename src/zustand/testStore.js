@@ -10,6 +10,11 @@ const testStore = create(immer((set) => {
           state.selected[id] = answer;
         })
       },
+      initSelected: () => {
+        set(state => {
+          state.selected = {};
+        })
+      }
     }
   }
 }))

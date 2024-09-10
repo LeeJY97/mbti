@@ -9,9 +9,6 @@ const AllTestResult = () => {
     return <Loading />;
   }
 
-  console.log("testResults", testResults);
-  debugger;
-
   return (
     <ul className="flex flex-wrap gap-[48px] max-w-[1448px] mx-auto">
       {testResults.map((result) => (
